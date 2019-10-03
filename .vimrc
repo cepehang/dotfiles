@@ -41,6 +41,7 @@ nnoremap <c-tab> gt
 nnoremap <space>q :q<cr>
 nnoremap <space>w :w<cr>
 nnoremap <space>x :x<cr>
+nnoremap <space>n :NERDTreeToggle<cr>
 
 " clear the search help buffer when hitting return
 nnoremap <space><cr> :nohlsearch<cr>
