@@ -20,6 +20,7 @@ set showmode
 set history=1000
 set relativenumber number
 set linebreak
+set splitbelow
 
 " easy system clipboard copy/paste
 noremap <space>y "*y
@@ -36,12 +37,14 @@ nnoremap <a-h> gT
 nnoremap <a-l> gt
 nnoremap <c-s-tab> gT
 nnoremap <c-tab> gt
+nnoremap <c-n> <c-w>n
 
 " command line shortcuts
 nnoremap <space>q :q<cr>
 nnoremap <space>w :w<cr>
 nnoremap <space>x :x<cr>
 nnoremap <space>n :NERDTreeToggle<cr>
+nnoremap <space>t :terminal<cr>
 
 " clear the search help buffer when hitting return
 nnoremap <space><cr> :nohlsearch<cr>
