@@ -22,6 +22,9 @@ set history=1000
 set relativenumber number
 set linebreak
 set splitbelow
+set autochdir
+
+let NERDTreeShowHidden=1
 
 " easy system clipboard copy/paste
 noremap <space>y "*y
@@ -39,6 +42,10 @@ nnoremap <a-l> gt
 nnoremap <c-s-tab> gT
 nnoremap <c-tab> gt
 nnoremap <c-n> <c-w>n
+
+" easy window resizing
+nnoremap <space>_ <c-w>_
+nnoremap <space>= <c-w>=
 
 " command line shortcuts
 nnoremap <space>q :q<cr>
