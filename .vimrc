@@ -13,7 +13,7 @@ colorscheme gruvbox
 
 cd ~
 set backspace=indent,eol,start
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab autoindent
+set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab autoindent
 set hlsearch incsearch
 set scrolloff=3
 set ignorecase smartcase
