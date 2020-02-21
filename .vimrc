@@ -2,9 +2,11 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  } }
+Plug 'sheerun/vim-polygot'
+Plug 'dense-analysis/ale'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 set background=dark
