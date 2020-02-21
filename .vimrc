@@ -7,6 +7,7 @@ Plug 'sheerun/vim-polygot'
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 set background=dark
@@ -14,7 +15,7 @@ colorscheme gruvbox
 
 cd ~
 set backspace=indent,eol,start
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab autoindent
+set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab autoindent
 set hlsearch incsearch
 set scrolloff=3
 set ignorecase smartcase
@@ -23,6 +24,9 @@ set history=1000
 set relativenumber number
 set linebreak
 set splitbelow
+set autochdir
+
+let NERDTreeShowHidden=1
 
 " easy system clipboard copy/paste
 noremap <space>y "*y
@@ -40,6 +44,10 @@ nnoremap <a-l> gt
 nnoremap <c-s-tab> gT
 nnoremap <c-tab> gt
 nnoremap <c-n> <c-w>n
+
+" easy window resizing
+nnoremap <space>_ <c-w>_
+nnoremap <space>= <c-w>=
 
 " command line shortcuts
 nnoremap <space>q :q<cr>
