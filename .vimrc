@@ -3,11 +3,12 @@ Plug 'scrooloose/nerdtree'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  } }
-Plug 'sheerun/vim-polygot'
 Plug 'dense-analysis/ale'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 set background=dark
@@ -26,6 +27,7 @@ set linebreak
 set splitbelow
 set autochdir
 
+syntax on
 let NERDTreeShowHidden=1
 
 " easy system clipboard copy/paste
