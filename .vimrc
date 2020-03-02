@@ -2,12 +2,11 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install()  } }
-Plug 'dense-analysis/ale'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  } }
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'sheerun/vim-polyglot'
 call plug#end()
 
@@ -63,5 +62,5 @@ nnoremap <space><cr> :nohlsearch<cr>
 
 " unimpaired mappings
 inoremap <c-bs> <c-w>
-nnoremap [<space> O<esc>
-nnoremap ]<space> o<esc>
+nnoremap <space>O O<esc>
+nnoremap <space>o o<esc>
