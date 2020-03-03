@@ -1,12 +1,11 @@
 # shell
 alias qq='exit'
-alias soz='source ~/.zshrc'
+alias soz='echo Sourcing $HOME/.zshrc && source $HOME/.zshrc'
 alias vim='nvim'
 alias tmux='TERM=screen-256color tmux'
 
 # pacman
 alias p='pacman'
-alias sp='sudo pacman'
 alias spy='sudo pacman -Sy'
 alias spyyu='sudo pacman -Syyu'
 
