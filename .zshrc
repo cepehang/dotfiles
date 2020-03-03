@@ -152,13 +152,13 @@ function change-around {
 }
 zle -N change-around
 
+# VI MODE KEYBINDINGS (cmd mode)
+bindkey -M vicmd 'ca'    change-around
+bindkey -M vicmd 'ci'    change-in
+bindkey -M vicmd 'da'    delete-around
+bindkey -M vicmd 'di'    delete-in
+
 # TODO: implement grml-zsh rprompt
-## VI MODE KEYBINDINGS (cmd mode)
-#bindkey -M vicmd 'ca'    change-around
-#bindkey -M vicmd 'ci'    change-in
-#bindkey -M vicmd 'da'    delete-around
-#bindkey -M vicmd 'di'    delete-in
-#
 ## vim mode indicator in prompt (http://superuser.com/questions/151803/how-do-i-customize-zshs-vim-mode)
 #vim_ins_mode="%{$fg[cyan]%}[INS]%{$reset_color%}"
 #vim_cmd_mode="%{$fg[green]%}[CMD]%{$reset_color%}"
