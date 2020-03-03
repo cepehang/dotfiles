@@ -6,8 +6,8 @@ alias tmux='TERM=screen-256color tmux'
 
 # pacman
 alias p='pacman'
-alias spy='sudo pacman -Sy'
-alias spyyu='sudo pacman -Syyu'
+alias sp='sudo pacman -S'
+alias spyu='sudo pacman -Syu'
 
 # git
 alias ga='git add'
