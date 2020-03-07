@@ -29,7 +29,7 @@ set autochdir
 syntax on
 let NERDTreeShowHidden=1
 
-" easy system clipboard copy/paste
+" easy system clipboard copy/paste ; nvim needs a clipboard provider
 noremap <space>y "*y
 noremap <space>Y "*Y
 noremap <space>p "*p
@@ -49,6 +49,9 @@ nnoremap <c-n> <c-w>n
 " easy window resizing
 nnoremap <space>_ <c-w>_
 nnoremap <space>= <c-w>=
+
+" easy resourcing
+nnoremap <F5> :source $HOME/.vimrc<cr>
 
 " command line shortcuts
 nnoremap <space>q :q<cr>
