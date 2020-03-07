@@ -26,6 +26,7 @@ set relativenumber number
 set linebreak
 set splitbelow
 set autochdir
+set mouse=a
 
 syntax on
 let NERDTreeShowHidden=1
