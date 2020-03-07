@@ -19,3 +19,4 @@ fi
 ln -sfv $dotfiles_dir/.vimrc $HOME/.vimrc;
 ln -sfv $dotfiles_dir/.zshrc $HOME/.zshrc;
 ln -sfv $dotfiles_dir/.aliases $HOME/.aliases;
+ln -sfv $dotfiles_dir/.tmux.conf $HOME/.tmux.conf;

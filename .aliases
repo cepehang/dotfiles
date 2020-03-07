@@ -2,22 +2,30 @@
 alias qq='exit'
 alias soz='echo Sourcing $HOME/.zshrc && source $HOME/.zshrc'
 alias vim='nvim'
-alias tmux='TERM=screen-256color tmux'
 
 # pacman
 alias p='pacman'
 alias sp='sudo pacman -S'
-alias spyu='sudo pacman -Syu'
 
 # git
 alias ga='git add'
 alias gaa='git add --all'
+alias gap='git add --patch'
 alias gf='git fetch'
 alias gl='git pull'
 alias gp='git push'
 alias glg='git log'
 alias glgg='git log --graph'
+alias gd='git diff'
 alias gs='git status'
 alias gss='git status -s'
 alias gcam='git commit -v -a -m'
 alias gcan!='git commit -v -a --amend --no-edit'
+
+# tmux
+alias ta='tmux attach-session -t'
+alias tad='tmux attach-session -d -t'
+alias ts='tmux new-session -s'
+alias tl='tmux list-sessions'
+alias tksv='tmux kill-server'
+alias tkss='tmux kill-session -t'
