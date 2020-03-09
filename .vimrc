@@ -26,7 +26,6 @@ set showmode
 set history=1000
 set relativenumber number
 set linebreak
-set splitbelow
 set autochdir
 set mouse=a
 
@@ -46,7 +45,7 @@ nnoremap <a-l> gt
 nnoremap <c-s-tab> gT
 nnoremap <c-tab> gt
 nnoremap <leader>- <c-w>s
-nnoremap <c-n> <c-w>s
+nnoremap <c-n> <c-w>n
 nnoremap <leader><bar> <c-w>v
 
 " easy buffer manipulation
@@ -109,9 +108,10 @@ inoremap <silent><expr> <c-space> coc#refresh()
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" Use `[c` and `]c` to navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+" keeping vim default jumps to changes
+" " Use `[c` and `]c` to navigate diagnostics
+" nmap <silent> [c <Plug>(coc-diagnostic-prev)
+" nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
