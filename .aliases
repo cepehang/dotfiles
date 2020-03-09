@@ -6,6 +6,7 @@ alias vim='nvim'
 # pacman
 alias p='pacman'
 alias sp='sudo pacman -S'
+alias spyu='sudo pacman -Syu'
 
 # git
 alias ga='git add'
