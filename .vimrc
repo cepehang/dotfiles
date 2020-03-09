@@ -46,11 +46,14 @@ nnoremap <a-l> gt
 nnoremap <c-s-tab> gT
 nnoremap <c-tab> gt
 nnoremap <leader>- <c-w>s
+nnoremap <c-n> <c-w>s
 nnoremap <leader><bar> <c-w>v
 
-" easy window resizing
+" easy buffer manipulation
 nnoremap <leader>_ <c-w>_
 nnoremap <leader>= <c-w>=
+nnoremap <leader>q :q<cr>
+nnoremap <leader>w :w<cr>
 
 " easy reloading
 nnoremap <F5> :source $HOME/.vimrc<cr>
@@ -152,7 +155,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 " Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
-nmap <leader>af  <Plug>(coc-fix-current)
+nmap <leader>aff  <Plug>(coc-fix-current)
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
