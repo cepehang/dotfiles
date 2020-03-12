@@ -227,5 +227,9 @@ bindkey -M vicmd "j" down-line-or-beginning-search
 # instant esc
 export KEYTIMEOUT=1
 
+# fzf integration
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
+
 # aliases
 source .aliases
