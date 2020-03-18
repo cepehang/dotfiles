@@ -224,6 +224,9 @@ bindkey -M vicmd "k" up-line-or-beginning-search
 bindkey -M vicmd "j" down-line-or-beginning-search
 # End of lines copied from Stratus3D
 
+# easy last argument
+bindkey -M viins '\e.' insert-last-word
+
 # instant esc
 export KEYTIMEOUT=1
 
@@ -233,3 +236,5 @@ source /usr/share/fzf/key-bindings.zsh
 
 # aliases
 source .aliases
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
