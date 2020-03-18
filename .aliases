@@ -32,3 +32,7 @@ alias tn='tmux new-session -s'
 alias tl='tmux list-sessions'
 alias tksv='tmux kill-server'
 alias tkss='tmux kill-session -t'
+
+# bepo mistakes
+alias ru='echo "Did you mean ls? If yes, you are using the bepo layout!"'
+alias xi='echo "Did you mean cd? If yes, you are using the bepo layout!"'
