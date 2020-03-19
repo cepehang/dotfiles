@@ -2,6 +2,8 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
+Plug 'jiangmiao/auto-pairs'
+Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
@@ -27,11 +29,13 @@ set history=1000
 set relativenumber number
 set linebreak
 set autochdir
+set splitbelow
 set mouse=a
 
 syntax on
 let NERDTreeShowHidden=1
 let mapleader="\<space>"
+let g:user_emmet_leader_key=","
 
 " easy system clipboard copy/paste ; nvim needs a clipboard provider
 noremap <leader>y "+y
@@ -65,6 +69,8 @@ nnoremap <leader><cr> :nohlsearch<cr>
 
 " unimpaired mappings
 inoremap <c-bs> <c-w>
+inoremap <c-a> <esc>ggVG
+nnoremap <c-a> ggVG
 nnoremap <leader>O O<esc>
 nnoremap <leader>o o<esc>
 
