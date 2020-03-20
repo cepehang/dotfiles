@@ -61,6 +61,9 @@ nnoremap <leader>w :w<cr>
 " easy reloading
 nnoremap <F5> :source $HOME/.vimrc<cr>
 
+" easy vim configuration
+nnoremap <leader><F5> :sp $HOME/.vimrc<cr>
+
 " easy nerd tree toggle
 nnoremap <leader>n :NERDTreeToggle<cr>
 
@@ -68,11 +71,11 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader><cr> :nohlsearch<cr>
 
 " unimpaired mappings
-inoremap <c-bs> <c-w>
 inoremap <c-a> <esc>ggVG
 nnoremap <c-a> ggVG
 nnoremap <leader>O O<esc>
 nnoremap <leader>o o<esc>
+nnoremap <leader>' '.;
 
 " coc.nvim default config
 " if hidden is not set, TextEdit might fail.
