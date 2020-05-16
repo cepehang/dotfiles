@@ -18,7 +18,6 @@ call plug#end()
 set background=dark
 colorscheme gruvbox
 
-cd ~
 set backspace=indent,eol,start
 set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab autoindent
 set hlsearch incsearch
@@ -28,7 +27,6 @@ set showmode
 set history=1000
 set relativenumber number
 set linebreak
-set autochdir
 set splitbelow
 set mouse=a
 
