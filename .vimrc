@@ -69,8 +69,6 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader><cr> :nohlsearch<cr>
 
 " unimpaired mappings
-inoremap <c-a> <esc>ggVG
-nnoremap <c-a> ggVG
 nnoremap <leader>O O<esc>
 nnoremap <leader>o o<esc>
 nnoremap <leader>' '.;
