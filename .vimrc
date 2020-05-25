@@ -1,16 +1,31 @@
 call plug#begin()
+" file navigation
 Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  } }
+Plug 'junegunn/fzf.vim'
+
+" theming
 Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline'
+
+" vim classics
 Plug 'jiangmiao/auto-pairs'
-Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+
+" git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+
+" tmux
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install()  } }
+
+" emmet
+Plug 'mattn/emmet-vim'
+
+" lsp and syntax highlighting
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'sheerun/vim-polyglot'
 call plug#end()
@@ -65,13 +80,15 @@ nnoremap <leader><F5> :sp $HOME/.vimrc<cr>
 " easy nerd tree toggle
 nnoremap <leader>n :NERDTreeToggle<cr>
 
+" easy fzf call
+nnoremap <leader>o :Files<cr>
+
 " clear the search help buffer when hitting return
 nnoremap <leader><cr> :nohlsearch<cr>
 
 " unimpaired mappings
-nnoremap <leader>O O<esc>
-nnoremap <leader>o o<esc>
-nnoremap <leader>' '.;
+nnoremap <leader>[ O<esc>
+nnoremap <leader>] o<esc>
 
 " coc.nvim default config
 " if hidden is not set, TextEdit might fail.
