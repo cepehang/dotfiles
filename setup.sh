@@ -10,10 +10,11 @@ if [ ! -f "$nvim_config_file"  ]; then
 	fi
 
 	echo Creating $nvim_config_file;
-	touch $nvim_config_file;
-	echo "set runtimepath^=~/.vim runtimepath+=~/.vim/after
-	let &packpath = &runtimepath
-	source ~/.vimrc" >> $nvim_config_file;
+	{
+		echo 'set runtimepath^=~/.vim runtimepath+=~/.vim/after'
+		echo 'let &packpath = &runtimepath'
+		echo 'source ~/.vimrc' 
+	} >> $nvim_config_file;
 fi
 
 ln -sfv $dotfiles_dir/.vimrc $HOME/.vimrc;
