@@ -25,8 +25,10 @@ Plug 'christoomey/vim-tmux-navigator'
 " emmet
 Plug 'mattn/emmet-vim'
 
-" lsp and syntax highlighting
+" lsp
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+
+" syntax highlighting
 Plug 'sheerun/vim-polyglot'
 call plug#end()
 
@@ -48,7 +50,6 @@ set mouse=a
 syntax on
 let NERDTreeShowHidden=1
 let mapleader="\<space>"
-let g:user_emmet_leader_key=","
 
 " easy system clipboard copy/paste ; nvim needs a clipboard provider
 noremap <leader>y "+y
@@ -138,7 +139,7 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+" nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
