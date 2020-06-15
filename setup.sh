@@ -24,4 +24,6 @@ ln -sfv $dotfiles_dir/.tmux.conf $HOME/.tmux.conf
 
 if [ -d "$ohmyzsh_custom_dir" ]; then
 	ln -sfv $dotfiles_dir/better-vi-mode.zsh $ohmyzsh_custom_dir/.zshrc
+	ln -sfv $dotfiles_dir/env.zsh $ohmyzsh_custom_dir/env.zsh
+	ln -sfv $dotfiles_dir/aliases.zsh $ohmyzsh_custom_dir/aliases.zsh
 fi
