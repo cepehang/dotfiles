@@ -57,6 +57,7 @@ set mouse=a
 syntax on
 let NERDTreeShowHidden=1
 let mapleader="\<space>"
+let g:airline_powerline_fonts=1
 
 " easy system clipboard copy/paste ; nvim needs a clipboard provider
 noremap <leader>y "+y
