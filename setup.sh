@@ -6,6 +6,8 @@ nvim_config_file="$nvim_config_dir/init.vim"
 
 ohmyzsh_custom_dir="$HOME/.oh-my-zsh/custom"
 
+plugins="plugins=(vi-mode archlinux colored-man-pages common-aliases fzf git magic-enter systemd thefuck tmux)"
+
 if [ ! -f "$nvim_config_file"  ]; then
 	if [ ! -d "$nvim_config_dir" ]; then
 		mkdir -pv $nvim_config_dir;
@@ -33,6 +35,9 @@ ln -sv $dotfiles_dir/aliases.zsh $ohmyzsh_custom_dir/aliases.zsh
 if [ ! -d "$ohmyzsh_custom_dir/custom/themes/powerlevel10k" ]; then
 	git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
+
+sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k\/powerlevel10k"/' $HOME/.zshrc
+sed -i "s/plugins=(git)/$plugins/" $HOME/.zshrc
 
 # if [ ! -f "/etc/udevmon.yaml" ]; then
 # 	{
