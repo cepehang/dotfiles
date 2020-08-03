@@ -21,6 +21,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-abolish'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -91,6 +92,9 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 
 " easy fzf call
 nnoremap <leader>o :Files<cr>
+
+" easy ripgrep call
+nnoremap <leader>R :Rg<cr>
 
 " clear the search help buffer when hitting return
 nnoremap <leader><cr> :nohlsearch<cr>
