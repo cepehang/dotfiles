@@ -76,7 +76,7 @@ nnoremap <c-n> <c-w>n
 nnoremap <leader><bar> <c-w>v
 
 " easy buffer manipulation
-nnoremap <leader>_ <c-w>_
+nnoremap <leader>_ <c-w>_<c-w><bar>
 nnoremap <leader>= <c-w>=
 nnoremap <leader>q :q<cr>
 nnoremap <leader>w :w<cr>
@@ -98,6 +98,10 @@ nnoremap <leader>R :Rg<cr>
 
 " clear the search help buffer when hitting return
 nnoremap <leader><cr> :nohlsearch<cr>
+
+" center the search matches
+nnoremap n nzz
+nnoremap N Nzz
 
 " unimpaired mappings
 nnoremap <leader>[ O<esc>
