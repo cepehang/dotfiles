@@ -5,6 +5,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" disable ale lsp
+let g:ale_disable_lsp=1
+
 call plug#begin()
 " file navigation
 Plug 'scrooloose/nerdtree'
@@ -38,13 +41,16 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'
+
+" linter
+Plug 'dense-analysis/ale'
 call plug#end()
 
 set background=dark
 colorscheme gruvbox
 
 set backspace=indent,eol,start
-set tabstop=2 softtabstop=2 shiftwidth=2 noexpandtab autoindent
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
 set hlsearch incsearch
 set scrolloff=3
 set ignorecase smartcase
@@ -59,6 +65,12 @@ syntax on
 let NERDTreeShowHidden=1
 let mapleader="\<space>"
 let g:airline_powerline_fonts=1
+let g:ale_fix_on_save=1
+let g:ale_fixers = {
+  \'*': ['remove_trailing_lines', 'trim_whitespace'],
+  \'java': ['google-java-format'],
+  \}
+let g:user_emmet_leader_key=','
 
 " easy system clipboard copy/paste ; nvim needs a clipboard provider
 noremap <leader>y "+y

@@ -123,3 +123,6 @@ export PATH="$PATH:`yarn global bin`"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 eval $(thefuck --alias)
+
+export JIRA_NAME='dnguyen'
+export JIRA_RAPID_BOARD=true
