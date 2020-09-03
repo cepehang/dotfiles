@@ -1,3 +1,5 @@
+" vim:foldmethod=marker foldlevel=0
+
 " Plugins {{{
 " automatic vim plug install
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -31,9 +33,11 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-abolish'
 Plug 'wellle/targets.vim'
+Plug 'michaeljsmith/vim-indent-object'
 
 " workspace & buffers manager
 Plug 'vim-ctrlspace/vim-ctrlspace'
+Plug 'qpkorr/vim-bufkill'
 
 " git
 Plug 'tpope/vim-fugitive'
@@ -76,9 +80,26 @@ Plug 'junegunn/limelight.vim'
 call plug#end()
 " }}}
 
+" Sane settings {{{
+set backspace=indent,eol,start
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
+set hlsearch incsearch
+set scrolloff=3 sidescrolloff=5
+set ignorecase smartcase
+set showmode
+set history=1000
+set relativenumber number
+set linebreak
+set splitbelow
+set mouse=a
+set autoread
+set encoding=utf-8
+set showtabline=0
+
+let mapleader="\<space>"
+" }}}
 " ALE {{{
 let g:ale_disable_lsp=1
-let g:ale_fix_on_save=1
 let g:ale_fixers = {
  \  '*': ['remove_trailing_lines', 'trim_whitespace'],
  \  'java': ['google_java_format'],
@@ -87,7 +108,7 @@ let g:ale_java_javac_executable = "javac -cp ~/.m2/repository/org/projectlombok/
 " }}}
 " AnyFold {{{
 autocmd Filetype java AnyFoldActivate
-set foldlevel=2
+set foldlevel=6
 " }}}
 " CHADTree {{{
 " easy chad tree toggle
@@ -354,26 +375,13 @@ nnoremap d*   *``dgn
 nnoremap d#   *``dgN
 nnoremap dg* g*``dgn
 nnoremap dg# g*``dgN
-" }}}
-" Sane settings {{{
-set backspace=indent,eol,start
-set tabstop=2 softtabstop=2 shiftwidth=2 expandtab autoindent
-set hlsearch incsearch
-set scrolloff=3 sidescrolloff=5
-set ignorecase smartcase
-set showmode
-set history=1000
-set relativenumber number
-set linebreak
-set splitbelow
-set mouse=a
-set autoread
-set encoding=utf-8
-set showtabline=0
 
-let mapleader="\<space>"
+" easy buffer clear
+nnoremap Q :BD<cr>
 " }}}
 " Startify {{{
+let g:startify_custom_header =
+      \ 'startify#center(startify#fortune#cowsay())'
 " easy startify
 nnoremap <leader>st :Startify<cr>
 " }}}
@@ -410,5 +418,3 @@ let g:vista#renderer#enable_icon = 1
 " easy vista
 nnoremap <leader>v :Vista!!<cr>
 " }}}
-
-" vim:fdm=marker
