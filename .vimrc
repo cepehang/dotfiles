@@ -10,7 +10,9 @@ endif
 
 call plug#begin()
 " file navigation
-Plug 'ms-jpq/chadtree', { 'branch': 'chad', 'do': ':UpdateRemotePlugins' }
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
@@ -69,7 +71,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'sheerun/vim-polyglot'
 Plug 'baskerville/vim-sxhkdrc'
 Plug 'uiiaoo/java-syntax.vim'
-Plug 'ap/vim-css-color'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " linter
 Plug 'dense-analysis/ale'
@@ -94,25 +96,24 @@ set splitbelow
 set mouse=a
 set autoread
 set encoding=utf-8
-set showtabline=0
 
 let mapleader="\<space>"
 " }}}
 " ALE {{{
 let g:ale_disable_lsp=1
 let g:ale_fixers = {
- \  '*': ['remove_trailing_lines', 'trim_whitespace'],
- \  'java': ['google_java_format'],
- \}
+\  '*': ['remove_trailing_lines', 'trim_whitespace'],
+\  'java': ['google_java_format'],
+\  'typescriptreact': ['eslint', 'prettier'],
+\  'json': ['prettier']
+\}
 let g:ale_java_javac_executable = "javac -cp ~/.m2/repository/org/projectlombok/lombok/1.18.12/lombok-1.18.12.jar"
+
+nnoremap <F2> :ALEFix<cr>
 " }}}
 " AnyFold {{{
 autocmd Filetype java AnyFoldActivate
 set foldlevel=6
-" }}}
-" CHADTree {{{
-" easy chad tree toggle
-nnoremap <leader>n :CHADopen<cr>
 " }}}
 " coc.nvim {{{
 " TextEdit might fail if hidden is not set.
@@ -127,7 +128,7 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=100
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -330,6 +331,13 @@ nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
 " NERDCommenter {{{
 let g:NERDSpaceDelims = 1
 " }}}
+" NERDTree {{{
+let g:NERDTreeWinSize=50
+
+" easy nerd tree toggle
+map <leader>n <plug>NERDTreeTabsToggle<cr>
+nnoremap <F1> :NERDTreeFind<cr>
+" }}}
 " Sane bindings {{{
 " easy system clipboard copy/paste ; nvim needs a clipboard provider
 noremap <leader>y "+y
@@ -380,6 +388,7 @@ nnoremap dg# g*``dgN
 nnoremap Q :BD<cr>
 " }}}
 " Startify {{{
+let g:startify_change_to_vcs_root = 1
 let g:startify_custom_header =
       \ 'startify#center(startify#fortune#cowsay())'
 " easy startify
@@ -387,6 +396,7 @@ nnoremap <leader>st :Startify<cr>
 " }}}
 " Theming {{{
 set background=dark
+set termguicolors
 colorscheme gruvbox
 
 let g:airline_powerline_fonts=1
@@ -398,6 +408,10 @@ let g:limelight_conceal_ctermfg = 100
 
 " Color name (:help gui-colors) or RGB color
 let g:limelight_conceal_guifg = '#83a598'
+
+" hex code 
+lua require'colorizer'.setup()
+
 " }}}
 " UltiSnips {{{
 let g:UltiSnipsExpandTrigger = '<c-j>'
@@ -418,3 +432,7 @@ let g:vista#renderer#enable_icon = 1
 " easy vista
 nnoremap <leader>v :Vista!!<cr>
 " }}}
+
+
+
+
