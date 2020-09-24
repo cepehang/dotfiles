@@ -257,15 +257,12 @@ mod1 + @button1
 #
 
 # run applications
-#super + space
-#	dmenu_recent -fn 'xos4 Terminus:size=15' -i -l 14 -w 600 -y $PANEL_HEIGHT
-
 super + space
-	rofi -show
+	dmenu_recency -fn 'xos4 Terminus:size=15' -i -l 14 -w 600 -y $PANEL_HEIGHT
 
 # Triggered by just tapping LEFT super key
-#super + shift + space
-#	rofi -show
+super + shift + space
+	rofi -show drun
 
 # Triggered by just tapping RIGHT super key
 super + shift + space + z
@@ -291,7 +288,7 @@ super + r
 	rofi-finder.sh
 
 super + F1
-	thunderbird
+	default-terminal neomutt
 
 super + F2
 	$BROWSER
@@ -308,7 +305,7 @@ super + F11
 super + e
 	thunar
 
-alt + shift + c
+alt + q
 	rofi -show calc -modi calc -no-show-match -no-sort -calc-command "echo -n '\{result\}' | xclip -selection clipboard"
 
 alt + v
@@ -335,12 +332,11 @@ XF86AudioLowerVolume
 XF86AudioMute
 	volume mute
 
-super + ctrl + F3
+XF86MonBrightnessDown
  light -U 5
 
-super + ctrl + F4
+XF86MonBrightnessUp
  light -A 5
-
 
 XF86Sleep
 	systemctl suspend
@@ -365,3 +361,11 @@ super + ctrl + space
 # Remove receptacles
 super + BackSpace
   for i in $(bspc query -N -n .leaf.!window.local); do bspc node $i -k; done
+
+# Passmenu
+alt + p
+  passmenu -fn 'xos4 Terminus:size=15' -i -l 14 -w 300 -y $PANEL_HEIGHT
+
+# Keyboard layout
+alt + shift + k
+  setxkbmap {fr, us}

@@ -17,7 +17,6 @@ bspc config borderless_monocle  true
 bspc config single_monocle true
 bspc config paddingless_monocle false
 #bspc config ignore_ewmh_focus      true
-bspc config initial_polarity second_child
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 ## Honor size hints: do not make windows smaller than they wish to be
@@ -43,12 +42,13 @@ bspc config split_ratio         0.50
 #bspc monitor -d • • • • • • • • • •
 #bspc monitor -d I II III IV V VI
 #bspc monitor -d          
-bspc monitor eDP1 -d 1 2 3 4 5
-bspc monitor HDMI2 -d 6 7 8 9 0
 
 external_monitor=$(xrandr --query | grep 'HDMI2')
 if [[ $external_monitor = *connected* ]]; then
-  xrandr --output eDP1 --primary --mode 1920x1080 --rotate normal --output HDMI2 --mode 1920x1080 --rotate normal --right-of eDP1
+  # bspc config -m eDP1 top_padding -25
+  bspc monitor eDP1 -d 6 7 8 9 0
+  bspc monitor HDMI2 -d 1 2 3 4 5
+  xrandr --output eDP1 --mode 1920x1080 --rotate normal --output HDMI2 --primary --mode 1920x1080 --rotate normal --above eDP1
 fi
 
 ###This creates and names desktops for multiple monitors.
@@ -120,9 +120,3 @@ bspc config external_rules_command /usr/bin/pseudo_automatic_mode
 #. $HOME/.config/bspwm/autostart
 limepanel &
 # $HOME/.config/polybar/launch.sh &
-# Alter picom settings if using intel graphics
-GRAPHIC_CARD=$(lspci | grep -i "vga" | sed 's/.*://' | sed 's/(.*//' | sed 's/^[ \t]*//')
-if [[ $(echo $GRAPHIC_CARD | grep -i 'intel\|lenovo') != "" ]]; then MCODE='initrd=\intel-ucode.img'
-  sed -i 's/"xrender"/"glx"/' ~/.config/picom.conf
-  grep -q 'vsync = true;' ~/.config/picom.conf || echo 'vsync = true;' >> ~/.config/picom.conf
-fi
