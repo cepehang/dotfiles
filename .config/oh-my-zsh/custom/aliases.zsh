@@ -40,6 +40,6 @@ alias bepo='setxkbmap -layout fr -variant bepo'
 
 alias ag='alias | rg'
 
-alias aliases='${=EDITOR} ${ZDOTDIR:-$HOME}/dotfiles.git/custom/aliases.zsh'
+alias aliases='$EDITOR $ZSH_CUSTOM/aliases.zsh'
 alias vimrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.vimrc'
 alias tmuxrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.tmux.conf'
