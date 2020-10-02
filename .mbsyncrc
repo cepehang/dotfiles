@@ -1,0 +1,78 @@
+IMAPStore polyconseil-remote
+Host imap.gmail.com
+Port 993
+User dan.nguyen@polyconseil.fr
+PassCmd "pass mutt-wizard-polyconseil"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore polyconseil-local
+Subfolders Verbatim
+Path /home/dnguyen/.local/share/mail/polyconseil/
+Inbox /home/dnguyen/.local/share/mail/polyconseil/INBOX
+Flatten .
+
+Channel polyconseil
+Expunge Both
+Master :polyconseil-remote:
+Slave :polyconseil-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 10000
+ExpireUnread no
+# End profile
+
+IMAPStore gmail-remote
+Host imap.gmail.com
+Port 993
+User ndml97@gmail.com
+PassCmd "pass mutt-wizard-gmail"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore gmail-local
+Subfolders Verbatim
+Path /home/dnguyen/.local/share/mail/gmail/
+Inbox /home/dnguyen/.local/share/mail/gmail/INBOX
+Flatten .
+
+Channel gmail
+Expunge Both
+Master :gmail-remote:
+Slave :gmail-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 10000
+ExpireUnread no
+# End profile
+
+IMAPStore live-remote
+Host imap-mail.outlook.com
+Port 993
+User east.disaster@live.com
+PassCmd "pass mutt-wizard-live"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore live-local
+Subfolders Verbatim
+Path /home/dnguyen/.local/share/mail/live/
+Inbox /home/dnguyen/.local/share/mail/live/INBOX
+Flatten .
+
+Channel live
+Expunge Both
+Master :live-remote:
+Slave :live-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 10000
+ExpireUnread no
+# End profile
+
