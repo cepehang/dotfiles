@@ -38,7 +38,6 @@ Plug 'wellle/targets.vim'
 Plug 'michaeljsmith/vim-indent-object'
 
 " workspace & buffers manager
-Plug 'vim-ctrlspace/vim-ctrlspace'
 Plug 'qpkorr/vim-bufkill'
 
 " git
@@ -56,7 +55,7 @@ Plug 'honza/vim-snippets'
 Plug 'pseewald/vim-anyfold'
 
 " marks
-Plug 'kshenoy/vim-signature'
+" Plug 'kshenoy/vim-signature'
 
 " comments
 Plug 'preservim/nerdcommenter'
@@ -135,12 +134,7 @@ set shortmess+=c
 
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
+set signcolumn=yes
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -159,11 +153,11 @@ endfunction
 let g:coc_snippet_next = '<tab>'
 
 " Use <c-space> to trigger completion.
-" if has('nvim')
-  " inoremap <silent><expr> <c-space> coc#refresh()
-" else
-  " inoremap <silent><expr> <c-@> coc#refresh()
-" endif
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
@@ -332,7 +326,10 @@ nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
 let g:NERDSpaceDelims = 1
 " }}}
 " NERDTree {{{
-let g:NERDTreeWinSize=50
+autocmd FileType nerdtree setlocal signcolumn=no
+let g:NERDTreeWinSize = 50
+let g:NERDTreeWinPos = "right"
+let NERDTreeMinimalUI = 1
 
 " easy nerd tree toggle
 map <leader>n <plug>NERDTreeTabsToggle<cr>
@@ -361,10 +358,7 @@ nnoremap <leader>q :q<cr>
 nnoremap <leader>w :w<cr>
 
 " easy reloading
-nnoremap <F5> :source $HOME/.vimrc<cr>
-
-" easy vim configuration
-nnoremap <leader><F5> :sp $HOME/.vimrc<cr>
+nnoremap <F5> :source $XDG_CONFIG_HOME/nvim/init.vim<cr>
 
 " clear the search help buffer when hitting return
 nnoremap <leader><cr> :nohlsearch<cr>
@@ -398,16 +392,13 @@ nnoremap <leader>st :Startify<cr>
 set background=dark
 set termguicolors
 colorscheme gruvbox
+highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 'unique_tail_improved'
 let g:indentLine_char = '▏'
 let g:indentLine_fileTypeExclude = [ 'startify' ]
-
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 100
-
-" Color name (:help gui-colors) or RGB color
-let g:limelight_conceal_guifg = '#83a598'
 
 " hex code 
 lua require'colorizer'.setup()

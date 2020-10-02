@@ -20,8 +20,9 @@ alias t='task'
 
 alias gcos='git checkout stash@{0} --'
 alias gct='git checkout --track'
-alias gmd='git merge develop'
+alias gmod='git merge origin/develop'
 alias gi='git icdiff'
+alias glf='git pull --ff-only'
 
 alias txk='tmuxinator stop'
 
