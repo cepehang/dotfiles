@@ -124,6 +124,9 @@ local globalkeys = gears.table.join(
     awful.key({ modkey }, "y", function() awful.spawn(terminal .. " yayfzf") end, 
               {description = "launch yayfzf", group = "launcher"}),
 
+    awful.key({ modkey }, "c", function() awful.spawn("rofi -show calc -modi calc -no-show-match -no-sort -calc-command \"echo -n '{result}' | xclip -selection clipboard\"") end, 
+              {description = "launch rofi-calc", group = "launcher"}),
+
     awful.key({ modkey }, "Tab", function() mykeyboardlayout.next_layout() end, 
               {description = "change keyboard layout", group = "launcher"})
 )
