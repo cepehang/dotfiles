@@ -1,0 +1,8 @@
+{
+  "java.configuration.updateBuildConfiguration":"interactive",
+  "java.trace.server":"verbose",
+  "java.import.maven.enabled":true,
+  "java.import.gradle.enabled":false,
+  "java.jdt.ls.vmargs":"-javaagent:/home/dnguyen/.m2/repository/org/projectlombok/lombok/1.18.12/lombok-1.18.12.jar",
+  "coc.preferences.useQuickfixForLocations": true
+}
