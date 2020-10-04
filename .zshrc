@@ -19,6 +19,7 @@ plugins=(
   mvn
   npm
   pass
+  ripgrep
   rsync
   systemd
   taskwarrior
@@ -34,6 +35,7 @@ eval $(thefuck --alias)
 # env
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
+export _Z_DATA="$XDG_CONFIG_HOME/z/z"
 export JDK_HOME='/usr/lib/jvm/default/'
 
 export FZF_DEFAULT_COMMAND='fd --no-ignore --hidden'
