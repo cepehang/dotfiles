@@ -42,5 +42,5 @@ alias bepo='setxkbmap -layout fr -variant bepo'
 alias ag='alias | rg'
 
 alias aliases='$EDITOR $ZSH_CUSTOM/aliases.zsh'
-alias vimrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.vimrc'
+alias vimrc='${=EDITOR} $XDG_CONFIG_HOME/nvim/init.vim'
 alias tmuxrc='${=EDITOR} ${ZDOTDIR:-$HOME}/.tmux.conf'
