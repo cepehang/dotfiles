@@ -380,6 +380,12 @@ nnoremap dg# g*``dgN
 
 " easy buffer clear
 nnoremap Q :BD<cr>
+
+" easy buffer resizing
+nnoremap <Up>    <C-w>+
+nnoremap <Down>  <C-w>-
+nnoremap <Left>  <C-w><
+nnoremap <Right> <C-w>>
 " }}}
 " Startify {{{
 let g:startify_change_to_vcs_root = 1
