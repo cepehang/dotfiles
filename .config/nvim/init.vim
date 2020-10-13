@@ -12,7 +12,6 @@ call plug#begin()
 " file navigation
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'jistr/vim-nerdtree-tabs'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'yuki-ycino/fzf-preview.vim', { 'branch': 'release', 'do': ':UpdateRemotePlugins' }
@@ -44,18 +43,15 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" tmu
+" tmux
 Plug 'christoomey/vim-tmux-navigator'
 
 " snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-" folds
-Plug 'pseewald/vim-anyfold'
-
 " marks
-" Plug 'kshenoy/vim-signature'
+Plug 'kshenoy/vim-signature'
 
 " comments
 Plug 'preservim/nerdcommenter'
@@ -68,7 +64,6 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'
-Plug 'baskerville/vim-sxhkdrc'
 Plug 'uiiaoo/java-syntax.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 
@@ -77,7 +72,6 @@ Plug 'dense-analysis/ale'
 
 " focus
 Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
 call plug#end()
 " }}}
 
@@ -110,10 +104,6 @@ let g:ale_java_javac_executable = "javac -cp ~/.m2/repository/org/projectlombok/
 
 nnoremap <F2> :ALEFix<cr>
 " }}}
-" AnyFold {{{
-autocmd Filetype java AnyFoldActivate
-set foldlevel=6
-" }}}
 " coc.nvim {{{
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -127,7 +117,7 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=100
+set updatetime=300
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -326,13 +316,14 @@ nnoremap <silent> [fzf-p]l     :<C-u>CocCommand fzf-preview.LocationList<CR>
 let g:NERDSpaceDelims = 1
 " }}}
 " NERDTree {{{
+" hide the signcolumn coc needs on normal buffers
 autocmd FileType nerdtree setlocal signcolumn=no
 let g:NERDTreeWinSize = 50
 let g:NERDTreeWinPos = "right"
 let NERDTreeMinimalUI = 1
 
 " easy nerd tree toggle
-map <leader>n <plug>NERDTreeTabsToggle<cr>
+map <leader>n :NERDTreeToggle<cr>
 nnoremap <F1> :NERDTreeFind<cr>
 " }}}
 " Sane bindings {{{
@@ -398,11 +389,14 @@ nnoremap <leader>st :Startify<cr>
 set background=dark
 set termguicolors
 colorscheme gruvbox
+
+" hide those ugly ~
 highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+" let g:airline#extensions#tabline#show_tab_count = 2
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:indentLine_char = '▏'
 let g:indentLine_fileTypeExclude = [ 'startify' ]
 
