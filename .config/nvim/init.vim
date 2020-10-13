@@ -25,7 +25,6 @@ Plug 'mhinz/vim-startify'
 
 " indent lines
 Plug 'Yggdroot/indentLine'
-Plug 'lukas-reineke/indent-blankline.nvim'
 
 " vim classics
 Plug 'jiangmiao/auto-pairs'
@@ -64,7 +63,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 " syntax highlighting
 Plug 'sheerun/vim-polyglot'
-Plug 'uiiaoo/java-syntax.vim'
+" Plug 'uiiaoo/java-syntax.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 
 " linter
@@ -318,6 +317,9 @@ let g:NERDSpaceDelims = 1
 " NERDTree {{{
 " hide the signcolumn coc needs on normal buffers
 autocmd FileType nerdtree setlocal signcolumn=no
+
+" https://github.com/Yggdroot/indentLine/issues/152
+autocmd BufEnter NERD_tree* :LeadingSpaceDisable
 let g:NERDTreeWinSize = 50
 let g:NERDTreeWinPos = "right"
 let NERDTreeMinimalUI = 1
