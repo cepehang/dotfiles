@@ -17,6 +17,7 @@ alias -g F='| fzf'
 alias -g D='& disown'
 
 alias t='task'
+alias tas='task +ACTIVE stop'
 
 alias gcos='git checkout stash@{0} --'
 alias gct='git checkout --track'
