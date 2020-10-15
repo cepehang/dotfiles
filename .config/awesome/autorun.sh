@@ -28,7 +28,7 @@ run xcape -e 'Super_L=Super_L|Control_L|Escape'
 run thunar --daemon
 run pa-applet
 run pamac-tray
-run setxkbmap -layout "us,fr"
+run setxkbmap -layout "us,fr" -option caps:escape
 run redshift-gtk
 
 ## The following are not included in minimal edition by default
