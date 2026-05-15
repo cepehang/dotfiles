@@ -1,0 +1,17 @@
+#!/bin/bash
+
+{{- if eq .chezmoi.osRelease.id "arch" }}
+
+command -v paru &>/dev/null && exit 0
+
+sudo pacman -S --noconfirm git base-devel
+git clone https://aur.archlinux.org/paru.git /tmp/paru
+cd /tmp/paru && makepkg -si --noconfirm
+
+{{- else if eq .chezmoi.os "darwin" }}
+
+command -v brew &>/dev/null && exit 0
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+{{- end }}
