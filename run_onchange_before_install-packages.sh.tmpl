@@ -1,0 +1,39 @@
+#!/bin/bash
+
+packages=(
+  # CLI
+  bat
+  eza
+  fastfetch
+  fd
+  fzf
+  git-delta
+  kitty
+  lazygit
+  neovim
+  ripgrep
+  starship
+  zoxide
+  zsh
+
+  # Programming
+  uv
+)
+
+{{- if eq .chezmoi.osRelease.id "arch" }}
+
+packages+=(
+  # Fonts
+  ttf-jetbrains-mono-nerd
+
+  # AUR
+  spotify
+  zen-browser-bin
+)
+paru -S --noconfirm --needed "${packages[@]}"
+
+{{- else if eq .chezmoi.os "darwin" }}
+
+brew install "${packages[@]}"
+
+{{- end }}
