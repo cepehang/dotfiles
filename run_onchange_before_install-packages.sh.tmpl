@@ -3,6 +3,7 @@
 packages=(
   # CLI
   bat
+  curl
   eza
   fastfetch
   fd
@@ -10,9 +11,11 @@ packages=(
   git-delta
   kitty
   lazygit
+  less
   neovim
   ripgrep
   starship
+  wl-clipboard
   zoxide
   zsh
 
@@ -23,6 +26,10 @@ packages=(
 {{- if eq .chezmoi.osRelease.id "arch" }}
 
 packages+=(
+  # Manuals
+  man-db
+  man-pages
+
   # Fonts
   ttf-jetbrains-mono-nerd
 
@@ -37,3 +44,7 @@ paru -S --noconfirm --needed "${packages[@]}"
 brew install "${packages[@]}"
 
 {{- end }}
+
+if [ -f "$HOME/.local/bin/chezmoi" ]; then
+  rm -rf "$HOME/.local/bin/chezmoi"
+fi

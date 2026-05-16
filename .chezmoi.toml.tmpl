@@ -1,0 +1,8 @@
+{{- $username := promptStringOnce . "username" "Username" -}}
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $ssh_passphrase := promptStringOnce . "ssh_passphrase" "SSH passphrase" -}}
+
+[data]
+username = {{ $username | quote }}
+email = {{ $email | quote }}
+ssh_passphrase = {{ $ssh_passphrase | quote }}

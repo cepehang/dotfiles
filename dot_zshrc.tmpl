@@ -13,22 +13,16 @@ export _Z_DATA="$XDG_CONFIG_HOME/z/z"
 
 {{- if eq .chezmoi.osRelease.id "arch" }}
 plugins=(archlinux systemd)
-
-# bootstrap paru
-# paru install an exact list of packages
-
 {{- else if eq .chezmoi.os "darwin" }}
 plugins=(brew kubectl)
-
-# bootstrap brew
-
 {{- end }}
-
 plugins+=(
   common-aliases
   direnv
   fzf
   git
+
+  # keep the zsh plugins at the end
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
