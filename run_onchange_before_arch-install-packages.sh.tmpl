@@ -1,0 +1,24 @@
+{{ if eq .chezmoi.osRelease.id "arch" -}}
+#!/bin/bash
+
+sudo pacman -S --noconfirm --needed \
+{{ range .packages.arch.pacman -}}
+  {{ . }} \
+{{ end }}
+
+if ! command -v paru &>/dev/null; then
+  sudo pacman -S --noconfirm git base-devel
+  git clone https://aur.archlinux.org/paru.git /tmp/paru
+  cd /tmp/paru && makepkg -si --noconfirm
+  rm -rf /tmp/paru
+fi
+
+paru -S --noconfirm --needed \
+{{ range .packages.arch.aur -}}
+  {{ . }} \
+{{ end }}
+
+if [ -f "$HOME/.local/bin/chezmoi" ]; then
+  rm -rf "$HOME/.local/bin/chezmoi"
+fi
+{{ end -}}
