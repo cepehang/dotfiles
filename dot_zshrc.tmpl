@@ -1,7 +1,8 @@
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
-# env
-# export BROWSER="qutebrowser"
+{{- if eq .chezmoi.osRelease.id "arch" }}
+export BROWSER="zen-browser"
+{{- end }}
 export EDITOR="nvim"
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -10,17 +11,18 @@ export _Z_DATA="$XDG_CONFIG_HOME/z/z"
 
 [[ -f ~/.zshenv.secrets ]] && source ~/.zshenv.secrets
 
-
-{{- if eq .chezmoi.osRelease.id "arch" }}
-plugins=(archlinux systemd)
-{{- else if eq .chezmoi.os "darwin" }}
-plugins=(brew kubectl)
-{{- end }}
-plugins+=(
+plugins=(
   common-aliases
   direnv
   fzf
   git
+{{- if eq .chezmoi.osRelease.id "arch" }}
+  archlinux
+  systemd
+{{- else if eq .chezmoi.os "darwin" }}
+  brew
+  kubectl
+{{- end }}
 
   # keep the zsh plugins at the end
   zsh-autosuggestions
@@ -52,11 +54,11 @@ if [ -f '/Users/Dan/Packages/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/Da
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/Dan/Packages/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/Dan/Packages/google-cloud-sdk/completion.zsh.inc'; fi
+
+source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
 {{ end -}}
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
-
-source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script

@@ -17,6 +17,7 @@ pacman = [
   "man-db",
   "man-pages",
   "neovim",
+  "nodejs",
   "ripgrep",
   "starship",
   "ttf-jetbrains-mono-nerd",
