@@ -1,25 +1,38 @@
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
-{{- if eq .chezmoi.osRelease.id "arch" }}
-export BROWSER="zen-browser"
-{{- end }}
 export EDITOR="nvim"
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
 export _Z_DATA="$XDG_CONFIG_HOME/z/z"
 
-[[ -f ~/.zshenv.secrets ]] && source ~/.zshenv.secrets
+{{ if eq .osid "linux-arch" -}}
+export BROWSER="zen-browser"
+{{ else if eq .osid "darwin" -}}
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
+export PATH="$PATH:$HOME/.maestro/bin"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
+# export REQUESTS_CA_BUNDLE='/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem'
+# export SSL_CERT_FILE='/Library/Application Support/Netskope/STAgent/data/nscacert_combined.pem'
+export REQUESTS_CA_BUNDLE="/Library/Application Support/Netskope/STAgent/data/nscacert.pem"
+export SSL_CERT_FILE="/Library/Application Support/Netskope/STAgent/data/nscacert.pem"
+export NODE_EXTRA_CA_CERTS="/Library/Application Support/Netskope/STAgent/data/nscacert.pem"
+export CLOUDSDK_PYTHON="/usr/bin/python3"
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
+export AUTHOR_ID=6721024
+export DOCKER_NETWORK_MODE="proxy"
+{{ end -}}
 
 plugins=(
   common-aliases
   direnv
   fzf
   git
-{{- if eq .chezmoi.osRelease.id "arch" }}
+{{- if eq .osid "linux-arch" }}
   archlinux
   systemd
-{{- else if eq .chezmoi.os "darwin" }}
+{{- else if eq .osid "darwin" }}
   brew
   kubectl
 {{- end }}
@@ -28,11 +41,9 @@ plugins=(
   zsh-autosuggestions
   zsh-syntax-highlighting
 )
-
 DISABLE_AUTO_UPDATE="true"
 ZSH_DISABLE_COMPFIX="true"
 ZSH_THEME=""
-
 source $ZSH/oh-my-zsh.sh
 
 unsetopt HIST_VERIFY  # !! in peace
@@ -48,14 +59,17 @@ alias -g E='&& exit'
 # alias -g C='| xclip -selection clipboard'
 alias ag='alias | rg'
 
-{{ if eq .chezmoi.os "darwin" -}}
+{{ if eq .osid "darwin" -}}
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/Dan/Packages/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/Dan/Packages/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/Dan/Packages/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/Dan/Packages/google-cloud-sdk/completion.zsh.inc'; fi
-
 source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
+
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 {{ end -}}
 
 eval "$(zoxide init zsh)"

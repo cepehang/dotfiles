@@ -1,8 +1,13 @@
 {{- $username := promptStringOnce . "username" "Username" -}}
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $ssh_passphrase := promptStringOnce . "ssh_passphrase" "SSH passphrase" -}}
+{{- $osid := .chezmoi.os -}}
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
 
 [data]
 username = {{ $username | quote }}
 email = {{ $email | quote }}
 ssh_passphrase = {{ $ssh_passphrase | quote }}
+osid = {{ $osid | quote }}
