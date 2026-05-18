@@ -10,6 +10,7 @@ pacman = [
   "fzf",
   "git",
   "git-delta",
+  "jq",
   "keyd",
   "kitty",
   "lazygit",
@@ -18,21 +19,25 @@ pacman = [
   "man-pages",
   "neovim",
   "npm",
+  "rbw",
   "ripgrep",
   "starship",
+  "tree-sitter-cli",
   "ttf-jetbrains-mono-nerd",
   "uv",
   "wl-clipboard",
   "yazi",
+  "yt-dlp",
   "zoxide",
   "zsh",
 ]
 aur = ["zen-browser-bin", "spotify"]
 
 [packages.darwin]
+taps = ["derailed/k9s", "ozeias/postgresql", "nikitabobko/tap"]
 brews = [
   "bat",
-  "curl",
+  "coreutils",
   "direnv",
   "eza",
   "fastfetch",
@@ -40,16 +45,31 @@ brews = [
   "fzf",
   "git",
   "git-delta",
+  "jq",
+  "kubectx",
   "lazygit",
-  "less",
-  "man-db",
-  "man-pages",
   "neovim",
+  "rbw",
   "ripgrep",
   "starship",
+  "tree-sitter-cli",
   "uv",
   "yazi",
+  "yt-dlp",
   "zoxide",
-  "zsh",
+
+  "derailed/k9s/k9s",
+  "ozeias/postgresql/postgis@15",
 ]
-casks = ["kitty", "font-jetbrains-mono-nerd-font"]
+casks = [
+  "android-platform-tools",
+  "docker-desktop",
+  "font-jetbrains-mono-nerd-font",
+  "ghostty",
+  "karabiner-elements",
+  "kitty",
+  "nikitabobko/tap/aerospace",
+  "qwerty-fr",
+  "spotify",
+]
+npm = ["@earendil-works/pi-coding-agent"]
