@@ -2,9 +2,9 @@
 #!/bin/bash
 
 sudo pacman -S --noconfirm --needed \
-{{ range .packages.arch.pacman -}}
-  {{ . }} \
-{{ end }}
+  {{ range .packages.arch.pacman -}}
+{{ . }} \
+  {{ end }}
 
 if ! command -v paru &>/dev/null; then
   sudo pacman -S --noconfirm git base-devel
@@ -14,14 +14,14 @@ if ! command -v paru &>/dev/null; then
 fi
 
 paru -S --noconfirm --needed \
-{{ range .packages.arch.aur -}}
-  {{ . }} \
-{{ end }}
+  {{ range .packages.arch.aur -}}
+{{ . }} \
+  {{ end }}
 
-npm install -g \
-{{ range .packages.darwin.npm -}}
- {{ . | quote }} \
-{{ end }}
+sudo npm install -g \
+  {{ range .packages.darwin.npm -}}
+{{ . | quote }} \
+  {{ end }}
 
 if [ -f "$HOME/.local/bin/chezmoi" ]; then
   rm -rf "$HOME/.local/bin/chezmoi"
