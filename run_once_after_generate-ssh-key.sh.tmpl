@@ -1,10 +1,11 @@
 #!/bin/bash
 
-KEY_PATH="$HOME/.ssh/id_ed25519"
+KEY_PATH="$HOME/.ssh/id_ed25519_personal"
 [ -f "$KEY_PATH" ] && exit 0
 
 mkdir -p "$HOME/.ssh"
 chmod 700 "$HOME/.ssh"
 ssh-keygen -t ed25519 -C "{{ .email }}" -f "$KEY_PATH" -N "{{ .ssh_passphrase }}"
 
-echo "Do not forget to add the SSH key at https://github.com/settings/keys"
+echo "Do not forget to add $KEY_PATH at https://github.com/settings/keys"
+echo "Other SSH keys must be created manually"
