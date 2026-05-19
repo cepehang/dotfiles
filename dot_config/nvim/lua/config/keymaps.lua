@@ -6,18 +6,18 @@
 -- vim.keymap.set("n", "<leader>bS", "<cmd>wa<cr>", { desc = "Save all buffers" })
 
 -- disable fast window navigation
-vim.keymap.del("n", "<c-h>")
-vim.keymap.del("n", "<c-j>")
-vim.keymap.del("n", "<c-k>")
-vim.keymap.del("n", "<c-l>")
+-- vim.keymap.del("n", "<c-h>")
+-- vim.keymap.del("n", "<c-j>")
+-- vim.keymap.del("n", "<c-k>")
+-- vim.keymap.del("n", "<c-l>")
 
 -- use c-j and c-k for scrolling in dropdowns
-vim.keymap.set("c", "<c-j>", "<c-n>")
-vim.keymap.set("c", "<c-k>", "<c-p>")
+-- vim.keymap.set("c", "<c-j>", "<c-n>")
+-- vim.keymap.set("c", "<c-k>", "<c-p>")
 
--- preserve search direction when scrolling
-vim.keymap.del("n", "n")
-vim.keymap.del("n", "N")
+-- preserve search direction when searching
+-- vim.keymap.del("n", "n")
+-- vim.keymap.del("n", "N")
 
 -- qwerty-fr keybindings
 vim.keymap.set("n", "ÿ", "<a-h>", { remap = true })

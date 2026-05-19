@@ -5,4 +5,5 @@ keyd.conf
 
 {{ if ne .osid "darwin" }}
 .config/aerospace/*
+.config/karabiner/*
 {{ end }}
