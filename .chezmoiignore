@@ -2,3 +2,7 @@ README.md
 AGENTS.md
 keyd.conf
 .config/oh-my-zsh/cache/*
+
+{{ if ne .osid "darwin" }}
+.config/aerospace/*
+{{ end }}
