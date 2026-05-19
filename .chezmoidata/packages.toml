@@ -55,6 +55,7 @@ brews = [
   "rbw",
   "ripgrep",
   "starship",
+  "tmux",
   "tree-sitter-cli",
   "uv",
   "yazi",
