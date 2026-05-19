@@ -98,12 +98,12 @@ preset = 'qwerty'
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 8
-inner.vertical = 8
-outer.left = 2
-outer.bottom = 2
-outer.top = 2
-outer.right = 2
+inner.horizontal = 4
+inner.vertical = 4
+outer.left = 4
+outer.bottom = 4
+outer.top = 4
+outer.right = 4
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -143,10 +143,10 @@ alt-cmd-slash = 'layout tiles horizontal vertical'
 alt-cmd-comma = 'layout accordion horizontal vertical'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-cmd-h = 'focus left'
-alt-cmd-j = 'focus down'
-alt-cmd-k = 'focus up'
-alt-cmd-l = 'focus right'
+alt-cmd-h = 'focus --boundaries-action wrap-around-the-workspace left'
+alt-cmd-j = 'focus --boundaries-action wrap-around-the-workspace down'
+alt-cmd-k = 'focus --boundaries-action wrap-around-the-workspace up'
+alt-cmd-l = 'focus --boundaries-action wrap-around-the-workspace right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-cmd-shift-h = 'move left'
