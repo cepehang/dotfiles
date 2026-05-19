@@ -19,7 +19,7 @@ paru -S --noconfirm --needed \
   {{ end }}
 
 sudo npm install -g \
-  {{ range .packages.darwin.npm -}}
+  {{ range .packages.arch.npm -}}
 {{ . | quote }} \
   {{ end }}
 

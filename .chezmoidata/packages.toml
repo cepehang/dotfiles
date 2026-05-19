@@ -8,11 +8,11 @@ pacman = [
   "fastfetch",
   "fd",
   "fzf",
+  "ghostty",
   "git",
   "git-delta",
   "jq",
   "keyd",
-  "kitty",
   "lazygit",
   "less",
   "man-db",
@@ -22,6 +22,8 @@ pacman = [
   "rbw",
   "ripgrep",
   "starship",
+  "tldr",
+  "tmux",
   "tree-sitter-cli",
   "ttf-jetbrains-mono-nerd",
   "uv",
@@ -32,6 +34,7 @@ pacman = [
   "zsh",
 ]
 aur = ["zen-browser-bin", "spotify"]
+npm = ["@earendil-works/pi-coding-agent"]
 
 [packages.darwin]
 taps = ["derailed/k9s", "ozeias/postgresql", "nikitabobko/tap"]
