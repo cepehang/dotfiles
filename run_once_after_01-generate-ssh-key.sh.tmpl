@@ -1,11 +1,15 @@
 #!/bin/bash
 
 KEY_PATH="$HOME/.ssh/id_ed25519_personal"
-[ -f "$KEY_PATH" ] && exit 0
+if [ ! -f "$KEY_PATH" ]; then
+  ssh-keygen -t ed25519 -C "Personal {{ .email }}" -f "$KEY_PATH" -N "{{ .ssh_passphrase }}"
+fi
 
-mkdir -p "$HOME/.ssh"
-chmod 700 "$HOME/.ssh"
-ssh-keygen -t ed25519 -C "{{ .email }}" -f "$KEY_PATH" -N "{{ .ssh_passphrase }}"
+{{ if eq .osid "darwin" }}
+WORK_KEY_PATH="$HOME/.ssh/id_ed25519_work"
+if [ ! -f "$WORK_KEY_PATH" ]; then
+  ssh-keygen -t ed25519 -C "Work {{ .email }}" -f "$WORK_KEY_PATH" -N "{{ .ssh_passphrase }}"
+fi
+{{ end }}
 
-echo "Do not forget to add $KEY_PATH at https://github.com/settings/keys"
-echo "Other SSH keys must be created manually"
+echo "Do not forget to add the keys at https://github.com/settings/keys"
