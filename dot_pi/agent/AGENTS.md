@@ -22,6 +22,16 @@ Always search for current information online before answering. Do not rely on tr
 - State facts directly. Use imperative voice for instructions
 - Prioritize accuracy over comprehensiveness
 
+## Pi Verification Protocol
+
+When implementing, modifying, or debugging pi extensions, skills, themes, configurations, or AGENTS.md files:
+
+- **Always verify in a live pi instance before declaring work complete.**
+- For quick smoke tests: `pi --no-session -e <extension-path>` or `pi --no-session -p <prompt>`
+- For background, parallel, or long-running validation: spawn a pi instance via the `tmux_subagent` tool
+- Check that commands appear in the startup header, shortcuts work, and tool blocking behaves as expected
+- Do not rely solely on static analysis or reading source code
+
 ## When Uncertain
 
 State the uncertainty plainly with the specific gap in knowledge. Do not guess.

@@ -19,6 +19,7 @@ pacman = [
   "man-pages",
   "neovim",
   "npm",
+  "obsidian",
   "rbw",
   "ripgrep",
   "starship",
@@ -26,6 +27,7 @@ pacman = [
   "tmux",
   "tree-sitter-cli",
   "ttf-jetbrains-mono-nerd",
+  "unzip",
   "uv",
   "wl-clipboard",
   "yazi",
@@ -33,7 +35,11 @@ pacman = [
   "zoxide",
   "zsh",
 ]
-aur = ["zen-browser-bin", "spotify"]
+aur = [
+  "spotify",
+  "xkb-qwerty-fr",
+  "zen-browser-bin",
+]
 npm = ["@earendil-works/pi-coding-agent"]
 
 [packages.darwin]
