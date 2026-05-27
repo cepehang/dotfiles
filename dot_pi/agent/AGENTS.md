@@ -3,6 +3,7 @@
 ## Research Protocol
 
 Always search for current information online before answering. Do not rely on training data for:
+
 - Software versions, APIs, or compatibility
 - Recent bug fixes, security patches, or deprecations
 - Command syntax, CLI flags, or configuration options
@@ -11,6 +12,7 @@ Always search for current information online before answering. Do not rely on tr
 ## Response Requirements
 
 - Cite sources with URLs or specific documentation references
+- These references must be explicitly given so that the user must be able to browse them
 - If search yields no relevant results: state explicitly that no authoritative source was found
 - Do not fabricate information when sources are unavailable
 
@@ -28,10 +30,23 @@ When implementing, modifying, or debugging pi extensions, skills, themes, config
 
 - **Always verify in a live pi instance before declaring work complete.**
 - For quick smoke tests: `pi --no-session -e <extension-path>` or `pi --no-session -p <prompt>`
-- For background, parallel, or long-running validation: spawn a pi instance via the `tmux_subagent` tool
 - Check that commands appear in the startup header, shortcuts work, and tool blocking behaves as expected
 - Do not rely solely on static analysis or reading source code
 
 ## When Uncertain
 
 State the uncertainty plainly with the specific gap in knowledge. Do not guess.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live as local markdown files under `.scratch/`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Default five canonical roles. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `CONTEXT.md` + `docs/adr/` at the repo root. See `docs/agents/domain.md`.
