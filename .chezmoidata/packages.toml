@@ -67,6 +67,7 @@ brews = [
   "starship",
   "tmux",
   "tree-sitter-cli",
+  "typst",
   "uv",
   "yazi",
   "yt-dlp",
@@ -78,12 +79,13 @@ brews = [
 casks = [
   "android-platform-tools",
   "docker-desktop",
+  "font-fontawesome",
   "font-jetbrains-mono-nerd-font",
   "ghostty",
   "karabiner-elements",
-  "kitty",
-  "nikitabobko/tap/aerospace",
   "qwerty-fr",
   "spotify",
+
+  "nikitabobko/tap/aerospace",
 ]
 npm = ["@earendil-works/pi-coding-agent"]

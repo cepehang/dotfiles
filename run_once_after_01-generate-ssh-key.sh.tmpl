@@ -2,13 +2,26 @@
 
 KEY_PATH="$HOME/.ssh/id_ed25519_personal"
 if [ ! -f "$KEY_PATH" ]; then
-  ssh-keygen -t ed25519 -C "Personal {{ .email }}" -f "$KEY_PATH" -N "{{ .ssh_passphrase }}"
+  ssh-keygen -t ed25519 -C "Personal {{ .email }}" -f "$KEY_PATH"
+fi
+
+SIGNING_KEY_PATH="$HOME/.ssh/signing_key_personal"
+if [ ! -f "$SIGNING_KEY_PATH" ]; then
+  ssh-keygen -t ed25519 -C "Personal signing key" -f "$SIGNING_KEY_PATH"
 fi
 
 {{ if eq .osid "darwin" }}
 WORK_KEY_PATH="$HOME/.ssh/id_ed25519_work"
 if [ ! -f "$WORK_KEY_PATH" ]; then
   ssh-keygen -t ed25519 -C "Work {{ .email }}" -f "$WORK_KEY_PATH" -N "{{ .ssh_passphrase }}"
+  eval $(ssh-agent)
+  ssh-add --apple-use-keychain "$WORK_KEY_PATH"
+fi
+WORK_SIGNING_KEY_PATH="$HOME/.ssh/signing_key_work"
+if [ ! -f "$WORK_SIGNING_KEY_PATH" ]; then
+  ssh-keygen -t ed25519 -C "Work signing key" -f "$WORK_SIGNING_KEY_PATH"
+  eval $(ssh-agent)
+  ssh-add --apple-use-keychain "$WORK_SIGNING_KEY_PATH"
 fi
 {{ end }}
 

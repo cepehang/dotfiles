@@ -1,13 +1,19 @@
 [user]
   name = {{ .username }}
   email = {{ .email }}
+  signingkey = ~/.ssh/signing_key_work.pub
+
+[commit]
+  gpgsign = true
 
 [gpg]
   format = ssh
+
+[gpg]
+  allowedSignersFile = ~/.config/git/allowed-signers
 
 [fetch]
   prune = true
 
 [pull]
   rebase = true
-
