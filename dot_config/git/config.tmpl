@@ -1,0 +1,28 @@
+[user]
+  name = {{ .username }}
+  email = {{ .email }}
+  signingkey = ~/.ssh/signing_key_personal.pub
+
+[commit]
+  gpgsign = true
+
+[tag]
+  gpgsign = true
+
+[gpg]
+  format = ssh
+  allowedSignersFile = ~/.config/git/allowed_signers
+
+[fetch]
+  prune = true
+
+[pull]
+  rebase = true
+
+[core]
+  sshCommand = ssh -i ~/.ssh/id_ed25519_personal -o IdentitiesOnly=yes
+
+{{ if eq .osid "darwin" -}}
+[includeIf "gitdir:~/Projects/"]
+  path = ~/.config/git/config-work
+{{ end -}}

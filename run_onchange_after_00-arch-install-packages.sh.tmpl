@@ -1,0 +1,24 @@
+{{ if eq .osid "linux-arch" -}}
+#!/bin/bash
+
+sudo pacman --sync --noconfirm --needed \
+  {{ range .packages.arch.pacman -}}
+{{ . }} \
+  {{ end }}
+
+cd ~/HyDE/Scripts
+./install.sh
+
+yay --sync --noconfirm --needed \
+  {{ range .packages.arch.aur -}}
+{{ . }} \
+  {{ end }}
+
+sudo npm install -g \
+  {{ range .packages.arch.npm -}}
+{{ . | quote }} \
+  {{ end }}
+
+npx skills@latest add mattpocock/skills
+
+{{ end -}}

@@ -1,13 +1,5 @@
 {{ if eq .osid "darwin" }}
-Host github.com
+Host *
   AddKeysToAgent yes
   UseKeychain yes
-  IdentityFile ~/.ssh/id_ed25519_work
-  IdentitiesOnly yes
 {{ end }}
-
-Host github-personal
-  HostName github.com
-  AddKeysToAgent yes
-  IdentityFile ~/.ssh/id_ed25519_personal
-  IdentitiesOnly yes

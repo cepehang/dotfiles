@@ -1,0 +1,7 @@
+[user]
+  name = {{ .work_username }}
+  email = {{ .work_email }}
+  signingkey = ~/.ssh/signing_key_work.pub
+
+[core]
+  sshCommand = ssh -i ~/.ssh/id_ed25519_work -o IdentitiesOnly=yes

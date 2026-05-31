@@ -1,6 +1,7 @@
 {{- $username := promptStringOnce . "username" "Username" -}}
 {{- $email := promptStringOnce . "email" "Email address" -}}
-{{- $ssh_passphrase := promptStringOnce . "ssh_passphrase" "SSH passphrase" -}}
+{{- $work_username := promptStringOnce . "work_username" "Work username" -}}
+{{- $work_email := promptStringOnce . "work_email" "Work email address" -}}
 {{- $osid := .chezmoi.os -}}
 {{- if hasKey .chezmoi.osRelease "id" -}}
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
@@ -9,7 +10,8 @@
 [data]
 username = {{ $username | quote }}
 email = {{ $email | quote }}
-ssh_passphrase = {{ $ssh_passphrase | quote }}
+work_username = {{ $work_username | quote }}
+work_email = {{ $work_email | quote }}
 osid = {{ $osid | quote }}
 
 [diff]

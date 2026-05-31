@@ -1,15 +1,15 @@
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
 export EDITOR="nvim"
-export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/.config"
-export ZSH="$XDG_CONFIG_HOME/oh-my-zsh"
-export _Z_DATA="$XDG_CONFIG_HOME/z/z"
+export XDG_DATA_HOME="$HOME/.local/share"
+export ZSH="$XDG_DATA_HOME/oh-my-zsh"
 
 {{ if eq .osid "linux-arch" -}}
 export BROWSER="zen-browser"
 {{ else if eq .osid "darwin" -}}
 export ANDROID_HOME="$HOME/Library/Android/sdk"
+export PATH="$HOME/.local/bin:$PATH"
 export PATH="$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$PATH:$HOME/.maestro/bin"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home"
@@ -58,7 +58,6 @@ alias -g D='& disown'
 alias -g E='&& exit'
 # alias -g C='| xclip -selection clipboard'
 alias ag='alias | rg'
-alias yay='paru'
 
 {{ if eq .osid "darwin" -}}
 # The next line updates PATH for the Google Cloud SDK.
@@ -71,9 +70,10 @@ source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization scrip
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+eval "$(starship init zsh)"
 {{ end -}}
 
 eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
