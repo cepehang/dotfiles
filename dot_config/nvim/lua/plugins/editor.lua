@@ -34,8 +34,9 @@ return {
         win = {
           input = {
             keys = {
-              ["<c-p>"] = { "history_back", mode = { "i", "n" } },
-              ["<c-n>"] = { "history_forward", mode = { "i", "n" } },
+              -- ["<c-p>"] = { "history_back", mode = { "i", "n" } },
+              -- ["<c-n>"] = { "history_forward", mode = { "i", "n" } },
+              -- qwerty-fr remapping
               ["é"] = { "cycle_win", mode = { "n" } },
             },
           },
@@ -44,7 +45,7 @@ return {
         },
         sources = {
           files = { hidden = true },
-          -- grep = { hidden = true },
+          grep = { hidden = true },
           explorer = {
             hidden = true,
             layout = { layout = { position = "right" } },
@@ -64,11 +65,10 @@ return {
         win = {
           -- position = "float",
           keys = {
-            -- <c-j> and <c-k> are used to scroll through fzf
-            nav_h = false,
-            nav_j = false,
-            nav_k = false,
-            nav_l = false,
+            -- nav_h = false,
+            -- nav_j = false,
+            -- nav_k = false,
+            -- nav_l = false,
             term_normal = {
               "<esc>",
               function(self)
