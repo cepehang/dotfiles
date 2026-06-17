@@ -1,9 +1,13 @@
 {{ if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-if ! command brew -v &> /dev/null; then
+if ! command brew -v &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
+
+{{ range .packages.darwin.taps -}}
+brew trust {{ . | quote }}
+{{ end -}}
 
 brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.darwin.taps -}}
@@ -18,11 +22,13 @@ cask {{ . | quote }}
 EOF
 
 npm install -g \
-{{ range .packages.darwin.npm -}}
- {{ . | quote }} \
-{{ end }}
+  {{ range .packages.darwin.npm -}}
+{{ . | quote }} \
+  {{ end }}
 
 if [ -f "$HOME/.local/bin/chezmoi" ]; then
   rm -rf "$HOME/.local/bin/chezmoi"
 fi
+
+sudo brew services start kanata
 {{ end -}}

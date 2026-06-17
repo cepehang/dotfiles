@@ -1,0 +1,31 @@
+;; Base layer: standard keyboard behavior
+
+(deflayer base
+        _    _    _    _    _    _    _    _    _    _    _
+        q    w    e    r    t         y    u    i    o    p
+  @ctl  a    s    d    f    g         h    j    k    l    ;
+        z    x    c    v    b   grv   n    m    ,    .    /
+                  _              _              _
+)
+
+(defalias
+  ;; Main mod-tap: Nav layer when held, Space when tapped.
+  nav (tap-hold $tap_timeout $long_hold_timeout spc (layer-while-held navigation))
+
+  ;; Space-cadet thumb keys: Shift/BackSpace, AltGr/Enter.
+  ;; Acts as a modifier by default, or as BackSpace/Enter when tapped separately.
+  sft (tap-hold-press $tap_timeout $hold_timeout bspc lsft)
+  sym (tap-hold-press $tap_timeout $hold_timeout ret (layer-while-held symbols))
+
+  ;; Home-row mods
+  ss (tap-hold $tap_timeout $long_hold_timeout s lmet)
+  dd (tap-hold $tap_timeout $long_hold_timeout d lctl)
+  ff (tap-hold $tap_timeout $long_hold_timeout f lalt)
+  jj (tap-hold $tap_timeout $long_hold_timeout j lalt)
+  kk (tap-hold $tap_timeout $long_hold_timeout k rctl)
+  ll (tap-hold $tap_timeout $long_hold_timeout l rmet)
+
+  ;; Caps lock: Ctrl/Esc
+  ctl (tap-hold-press $tap_timeout $hold_timeout esc lctl))
+
+;; vim: ft=lisp

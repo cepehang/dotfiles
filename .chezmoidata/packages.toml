@@ -47,7 +47,7 @@ aur = [
 npm = ["@earendil-works/pi-coding-agent"]
 
 [packages.darwin]
-taps = ["derailed/k9s", "ozeias/postgresql", "nikitabobko/tap"]
+taps = ["derailed/k9s", "nikitabobko/tap"]
 brews = [
   "bat",
   "coreutils",
@@ -59,6 +59,7 @@ brews = [
   "git",
   "git-delta",
   "jq",
+  "kanata",
   "kubectx",
   "lazygit",
   "neovim",
@@ -74,7 +75,6 @@ brews = [
   "zoxide",
 
   "derailed/k9s/k9s",
-  "ozeias/postgresql/postgis@15",
 ]
 casks = [
   "android-platform-tools",
