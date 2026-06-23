@@ -1,15 +1,15 @@
-;; Ergo‑L Mac aliases
+;; Ergo‑L Windows/Linux aliases
 
 ;; Navigation layer
 (defalias
 
-  all M-a
-  sav M-s
-  cls M-t
-  ndo M-z
-  cut M-x
-  cpy M-w
-  pst M-v
+  all C-a
+  sav C-s
+  cls C-t
+  ndo C-z
+  cut C-x
+  cpy C-w
+  pst C-v
 
   0 0
   1 1

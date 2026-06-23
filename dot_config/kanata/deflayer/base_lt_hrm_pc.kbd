@@ -1,7 +1,7 @@
 ;; Base layer: layer-taps under the thumbs + home-row mods on SDF and JKL
 
 (deflayer base
-        brdn brup M-S-3 M-S-4 M-S-5      M-S-6 prev pp   next mute vold volu
+        mute vold volu  _     brdn       brup _     prev pp   next _    _
         _    _    _     _     _     _    _     _    _    _    _
         q    w    e     r     t          y     u    i    o    p
   @ctl  a    @ss  @dd   @ff   g          h     @jj  @kk  @ll  ;
@@ -13,7 +13,7 @@
 
 (defalias
   ;; Main mod-tap: Nav layer when held, Space when tapped.
-  nav (tap-hold $tap_timeout $hold_timeout spc (layer-while-held navigation))
+  nav (tap-hold $tap_timeout $long_hold_timeout spc (layer-while-held navigation))
 
   ;; Space-cadet thumb keys: Shift/BackSpace, AltGr/Enter.
   ;; Acts as a modifier by default, or as BackSpace/Enter when tapped separately.
@@ -21,12 +21,12 @@
   sym (tap-hold-press $long_tap_timeout $long_hold_timeout ret (layer-while-held symbols))
 
   ;; Home-row mods
-  ss (tap-hold $tap_timeout $hold_timeout s lalt)
-  dd (tap-hold $tap_timeout $hold_timeout d lmet)
-  ff (tap-hold $tap_timeout $hold_timeout f lctl)
-  jj (tap-hold $tap_timeout $hold_timeout j rctl)
-  kk (tap-hold $tap_timeout $hold_timeout k rmet)
-  ll (tap-hold $tap_timeout $hold_timeout l ralt)
+  ss (tap-hold $tap_timeout $hold_timeout s lmet)
+  dd (tap-hold $tap_timeout $hold_timeout d lctl)
+  ff (tap-hold $tap_timeout $hold_timeout f lalt)
+  jj (tap-hold $tap_timeout $hold_timeout j ralt)
+  kk (tap-hold $tap_timeout $hold_timeout k rctl)
+  ll (tap-hold $tap_timeout $hold_timeout l rmet)
 
   ;; Caps lock: Ctrl/Esc
   ctl (tap-hold-press $tap_timeout $hold_timeout esc lctl)

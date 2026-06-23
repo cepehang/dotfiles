@@ -1,9 +1,0 @@
-{{ if eq .chezmoi.os "linux" -}}
-#!/bin/sh
-
-# keyd.conf hash: {{ include "keyd.conf" | sha256sum }}
-sudo mkdir -p /etc/keyd
-sudo cp {{ .chezmoi.sourceDir }}/keyd.conf /etc/keyd/default.conf
-sudo systemctl enable --now keyd
-sudo systemctl is-active --quiet keyd && sudo keyd reload
-{{ end -}}

@@ -41,7 +41,7 @@ pacman = [
 ]
 aur = [
   "spotify",
-  "xkb-qwerty-fr",
+  "kanata-bin",
   "zen-browser-bin",
 ]
 npm = ["@earendil-works/pi-coding-agent"]

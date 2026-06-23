@@ -16,7 +16,7 @@
   ;; The key must be pressed twice in tap_timeout ms to enable repetitions.
   tap_timeout 200
   ;; The key must be held for hold_timeout ms to become a layer shift.
-  hold_timeout 150
+  hold_timeout 200
   ;; Slightly higher values for thumbs
   long_tap_timeout 300
   long_hold_timeout 250
@@ -29,8 +29,11 @@
 
 ;; (include defsrc/pc.kbd)  ;; PC, standard finger assignment
 ;; (include defsrc/mac.kbd)  ;; Mac, standard finger assignment
-;; (include defsrc/pc_anglemod.kbd)  ;; PC, ZXCVB are shifted to the left
+{{- if eq .osid "linux-arch" }}
+(include defsrc/pc_anglemod.kbd)  ;; PC, ZXCVB are shifted to the left
+{{- else if eq .osid "darwin" }}
 (include defsrc/mac_anglemod.kbd)  ;; Mac, ZXCVB are shifted to the left
+{{- end }}
 ;; (include defsrc/pc_wide_anglemod.kbd)  ;; PC, angle-mod + right hand shifted by one key
 ;; (include defsrc/mac_wide_anglemod.kbd)  ;; Mac, angle-mod + right hand shifted by one key
 
@@ -41,7 +44,11 @@
 
 ;; (include deflayer/base.kbd)  ;; standard keyboard behavior
 ;; (include deflayer/base_lt_mac.kbd)  ;; layer-taps on both thumb keys
+{{- if eq .osid "linux-arch" }}
+(include deflayer/base_lt_hrm_pc.kbd)  ;; layer-taps + home-row mods
+{{- else if eq .osid "darwin" }}
 (include deflayer/base_lt_hrm_mac.kbd)  ;; layer-taps + home-row mods
+{{- end }}
 
 ;; Note: not enabling layer-taps here makes the rest of the file useless.
 
@@ -72,8 +79,11 @@
 ;; Aliases for `Symbols` and `Navigation` layers
 ;; Depends on PC/Mac and keyboard layout
 
-;; (include defalias/ergol_pc.kbd)  ;; Ergo‑L PC
+{{- if eq .osid "linux-arch" }}
+(include defalias/ergol_pc.kbd)  ;; Ergo‑L PC
+{{- else if eq .osid "darwin" }}
 (include defalias/ergol_mac.kbd)  ;; Ergo‑L Mac
+{{- end }}
 ;; (include defalias/qwerty-lafayette_pc.kbd)  ;; Qwerty‑Lafayette PC
 ;; (include defalias/qwerty-lafayette_mac.kbd)  ;; Qwerty‑Lafayette Mac
 ;; (include defalias/qwerty_pc.kbd)  ;; Qwerty / Colemak PC
