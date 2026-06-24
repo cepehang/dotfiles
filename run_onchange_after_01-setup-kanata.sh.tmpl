@@ -4,4 +4,6 @@
 # keyd.conf hash: {{ include "lib/systemd/system/kanata.service" | sha256sum }}
 sudo install --mode 644 {{ .chezmoi.sourceDir }}/lib/systemd/system/kanata.service /lib/systemd/system/kanata.service
 sudo systemctl enable --now kanata
+sudo localectl set-keymap fr
+sudo mkinitcpio -P
 {{ end -}}

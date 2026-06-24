@@ -2,6 +2,7 @@
 pacman = [
   "base-devel",
   "bat",
+  "chaotic-aur/kanata",
   "curl",
   "direnv",
   "eza",
@@ -18,12 +19,14 @@ pacman = [
   "less",
   "man-db",
   "man-pages",
+  "musescore",
   "neovim",
   "npm",
   "obsidian",
   "otf-font-awesome",
   "rbw",
   "ripgrep",
+  "showmethekey",
   "starship",
   "tldr",
   "tmux",
@@ -41,7 +44,6 @@ pacman = [
 ]
 aur = [
   "spotify",
-  "kanata-bin",
   "zen-browser-bin",
 ]
 npm = ["@earendil-works/pi-coding-agent"]
