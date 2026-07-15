@@ -4,7 +4,7 @@ return {
   { -- keymap discovery
     "folke/which-key.nvim",
     opts = {
-      preset = "modern",
+      -- preset = "modern",
       spec = {
         {
           mode = { "n", "v" },
@@ -37,7 +37,7 @@ return {
               -- ["<c-p>"] = { "history_back", mode = { "i", "n" } },
               -- ["<c-n>"] = { "history_forward", mode = { "i", "n" } },
               -- qwerty-fr remapping
-              ["é"] = { "cycle_win", mode = { "n" } },
+              -- ["é"] = { "cycle_win", mode = { "n" } },
             },
           },
           list = { keys = { ["<"] = "cycle_win", mode = { "n" } } },
@@ -136,9 +136,9 @@ return {
     "saghen/blink.cmp",
     opts = {
       keymap = {
-        ["<cr>"] = {},
-        ["<c-k>"] = { "select_prev", "fallback" },
-        ["<c-j>"] = { "select_next", "fallback" },
+        -- ["<cr>"] = {},
+        -- ["<c-k>"] = { "select_prev", "fallback" },
+        -- ["<c-j>"] = { "select_next", "fallback" },
       },
     },
   },

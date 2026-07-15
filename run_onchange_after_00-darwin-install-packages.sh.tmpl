@@ -21,11 +21,6 @@ cask {{ . | quote }}
 {{ end -}}
 EOF
 
-npm install -g \
-  {{ range .packages.darwin.npm -}}
-{{ . | quote }} \
-  {{ end }}
-
 if [ -f "$HOME/.local/bin/chezmoi" ]; then
   rm -rf "$HOME/.local/bin/chezmoi"
 fi

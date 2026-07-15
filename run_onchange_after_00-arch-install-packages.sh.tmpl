@@ -14,11 +14,4 @@ yay --sync --noconfirm --needed \
 {{ . }} \
   {{ end }}
 
-sudo npm install -g \
-  {{ range .packages.arch.npm -}}
-{{ . | quote }} \
-  {{ end }}
-
-npx skills@latest add mattpocock/skills
-
 {{ end -}}

@@ -73,7 +73,6 @@ brews = [
   "typst",
   "uv",
   "yazi",
-  "yt-dlp",
   "zoxide",
 
   "derailed/k9s/k9s",
@@ -85,7 +84,6 @@ casks = [
   "font-jetbrains-mono-nerd-font",
   "ghostty",
   "karabiner-elements",
-  "qwerty-fr",
   "spotify",
 
   "nikitabobko/tap/aerospace",
