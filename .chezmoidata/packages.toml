@@ -84,7 +84,7 @@ casks = [
   "font-jetbrains-mono-nerd-font",
   "ghostty",
   "karabiner-elements",
-  "spotify",
+  "deezer",
 
   "nikitabobko/tap/aerospace",
 ]
