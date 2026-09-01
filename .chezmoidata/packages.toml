@@ -43,8 +43,8 @@ pacman = [
 ]
 aur = [
   "deezer-enhanced-bin",
-  "pi",
-  "kanata",
+  "pi-coding-agent-bin",
+  "kanata-bin",
   "noctalia-git",
   "zen-browser-bin",
 ]
