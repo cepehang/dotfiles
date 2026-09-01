@@ -1,6 +1,6 @@
 ./*.md
-keyd.conf
 .local/share/oh-my-zsh/cache/*
+lib/**
 
 {{ if ne .osid "darwin" }}
 .config/aerospace/*

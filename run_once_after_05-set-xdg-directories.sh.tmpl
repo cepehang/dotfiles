@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+LC_ALL=C.UTF-8 xdg-user-dirs-update --force
+{{ end -}}
