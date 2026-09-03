@@ -29,8 +29,8 @@
 (defalias
 
   ^  AG-q
-  <  AG-x
-  >  AG-c
+  <  AG-w
+  >  AG-e
   $  AG-r
   %  AG-t
   @  AG-y
@@ -51,8 +51,8 @@
   '' AG-;
 
   ~  AG-z
-  [  AG-w
-  ]  AG-e
+  [  AG-x
+  ]  AG-c
   _  AG-v
   #  AG-b
   |  AG-n

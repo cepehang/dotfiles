@@ -6,5 +6,5 @@ git:
     - pattern: "^(\\w+-\\w+).*"
       replace: "($1)[API] "
 {{- end }}
-  pagers:
-    - pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  diffRenderers:
+    - command: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
