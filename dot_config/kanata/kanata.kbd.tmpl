@@ -23,55 +23,37 @@
 )
 
 ;;-----------------------------------------------------------------------------
-;; original key arrangement on your keyboard: Mac or PC.
+;; Original key arrangement on your keyboard: Mac or PC.
 ;; Choose here if you want to add an angle mod: ZXCVB are shifted to the left.
-;; See https://colemakmods.github.io/ergonomic-mods/angle.html for more details.
 
-;; (include defsrc/pc.kbd)  ;; PC, standard finger assignment
-;; (include defsrc/mac.kbd)  ;; Mac, standard finger assignment
 {{- if eq .osid "linux-arch" }}
-(include defsrc/pc_anglemod.kbd)  ;; PC, ZXCVB are shifted to the left
+(include defsrc/pc_anglemod.kbd)
 {{- else if eq .osid "darwin" }}
-(include defsrc/mac_anglemod.kbd)  ;; Mac, ZXCVB are shifted to the left
+(include defsrc/mac_anglemod.kbd)
 {{- end }}
-;; (include defsrc/pc_wide_anglemod.kbd)  ;; PC, angle-mod + right hand shifted by one key
-;; (include defsrc/mac_wide_anglemod.kbd)  ;; Mac, angle-mod + right hand shifted by one key
 
 
 ;;-----------------------------------------------------------------------------
 ;; `Base` layer: standard or dual keys? (layer-taps, homerow mods?)
-;; If you just want angle mod, you still have to enable the standard base.
 
-;; (include deflayer/base.kbd)  ;; standard keyboard behavior
-;; (include deflayer/base_lt_mac.kbd)  ;; layer-taps on both thumb keys
 {{- if eq .osid "linux-arch" }}
 (include deflayer/base_lt_hrm_pc.kbd)  ;; layer-taps + home-row mods
 {{- else if eq .osid "darwin" }}
 (include deflayer/base_lt_hrm_mac.kbd)  ;; layer-taps + home-row mods
 {{- end }}
 
-;; Note: not enabling layer-taps here makes the rest of the file useless.
-
 
 ;;-----------------------------------------------------------------------------
 ;; `Symbols` layer
 
-;; (include deflayer/symbols_noop.kbd)  ;; AltGr stays as-is
-;; (include deflayer/symbols_lafayette.kbd)  ;; AltGr programmation layer like Ergo‑L
-;; (include deflayer/symbols_noop_num.kbd)  ;; AltGr stays as-is + NumRow layers
 (include deflayer/symbols_lafayette_num.kbd)  ;; AltGr prog layer + NumRow layers
 
 
 ;;-----------------------------------------------------------------------------
 ;; `Navigation` layer: ESDF or HJKL?
 
-;; (include deflayer/navigation.kbd)  ;; ESDF on the left, NumPad on the right
 (include deflayer/navigation_vim.kbd)  ;; HJKL + NumPad on [Space]+[Q]
 
-;; Replace XX by the keyboard shortcut of your application launcher, if any.
-;; Mapped on [Space]+[P] in both navigation layers.
-
-;; (defalias run M-p)  ;; [Command]-[P]
 (defalias run M-spc)
 
 
@@ -84,14 +66,6 @@
 {{- else if eq .osid "darwin" }}
 (include defalias/ergol_mac.kbd)  ;; Ergo‑L Mac
 {{- end }}
-;; (include defalias/qwerty-lafayette_pc.kbd)  ;; Qwerty‑Lafayette PC
-;; (include defalias/qwerty-lafayette_mac.kbd)  ;; Qwerty‑Lafayette Mac
-;; (include defalias/qwerty_pc.kbd)  ;; Qwerty / Colemak PC
-;; (include defalias/qwerty_mac.kbd)  ;; Qwerty / Colemak Mac
-;; (include defalias/azerty_pc.kbd)  ;; Azerty PC
-;; (include defalias/qwertz_pc.kbd)  ;; Qwertz PC
-;; (include defalias/bepo_pc.kbd)  ;; Bépo PC
-;; (include defalias/optimot_pc.kbd)  ;; Optimot PC
 
 ;;-----------------------------------------------------------------------------
 ;; Extra configuration
