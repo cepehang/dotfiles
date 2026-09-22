@@ -42,6 +42,7 @@ return {
           },
           enabled = true,
         },
+        ruff = { mason = false },
         ty = { enabled = false },
         copilot = { enabled = false },
       },

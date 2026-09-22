@@ -27,6 +27,7 @@ return {
     opts = {
       workspaces = { { name = "Noise", path = "~/org/noise" } },
       ui = { enable = false },
+      link = { auto_update = true },
     },
   },
 }
