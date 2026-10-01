@@ -45,6 +45,7 @@
                     },
                     {
                         "description": "Left Option -> Left Option + Cmd",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {

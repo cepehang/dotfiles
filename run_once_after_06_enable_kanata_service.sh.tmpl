@@ -1,0 +1,5 @@
+{{ if eq .chezmoi.os "darwin" -}}
+#!/bin/sh
+
+sudo brew services start kanata
+{{ end -}}
